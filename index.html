@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{ 
+        font-family: Arial, sans-serif; 
+        text-align: center; 
+        background-color: #f8f9fa; 
+    }
+    .container{ 
+        margin-top: 50px; 
+        padding: 20px; 
+    }
+    .logo{ 
+        width: 150px
+    }
+    .search-box{ 
+        margin: 20px 0; 
+    }    
+    input{ 
+        padding: 10px; 
+        width: 300px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+    }
+    button{ 
+        padding: 10px; 
+        cursor: pointer; 
+    }
+    .results-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .card{
+        background: white;
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3{ 
+        font-size: 18px; 
+        color: #333;
+    }
+</style>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="Logo" class="logo">
+        <h1>WIKIPEDIA API</h1>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Izdeu...">
+            <button id="searchBtn">🔍</button>
+        </div>
+        <div class="results-grid">
+        <div class="card">
+            <h3>Document Object Model</h3>
+            <p>The Document Object Model (DOM) is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure...</p>
+        </div>
+
+        <div class="card">
+            <h3>Windows API</h3>
+            <p>The Windows API, informally WinAPI, is Microsoft's core set of application programming interfaces (APIs) available in the Microsoft Windows operating systems.</p>
+        </div>
+
+        <div class="card">
+            <h3>Front end and back end</h3>
+            <p>In software engineering, the terms front end and back end refer to the separation of concerns between the presentation layer and the data access layer.</p>
+        </div>
+
+        <div class="card">
+            <h3>API (disambiguation)</h3>
+            <p>An API, or application programming interface, is any defined inter-program interface. API or api may also refer to...</p>
+        </div>
+
+        <div class="card">
+            <h3>Representational state transfer</h3>
+            <p>Representational state transfer (REST) is a de-facto standard for a software architecture for interactive applications that typically use multiple Web services.</p>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    const URL = "./data.json"
+    const btn = document.getElementById("searchBtn");
+    const input = document.getElementById("searchInput");
+    const container = document.querySelector(".results-grid");
+
+    async function add(){
+        const promise = await fetch(URL);
+        const data = await promise.json();
+        console.log(data);
+
+        container.innerHTML=`
+        <div class="card">
+            <h3>${data[input.value].title}</h3>
+            <p>${data[input.value].description}</p>
+        </div>
+        `;
+    }
+    btn.addEventListener("click", add);
+</script>
+</html>

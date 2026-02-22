@@ -1,0 +1,22 @@
+{
+  "Document Object Model": {
+    "title": "Document Object Model",
+    "description": "The Document Object Model (DOM) is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document."
+  },
+  "Windows API": {
+    "title": "Windows API",
+    "description": "The Windows API, informally WinAPI, is Microsoft's core set of application programming interfaces (APIs) available in the Microsoft Windows operating systems."
+  },
+  "Front end and back end": {
+    "title": "Front end and back end",
+    "description": "In software engineering, the terms front end and back end refer to the separation of concerns between the presentation layer and the data access layer."
+  },
+  "API (disambiguation)": {
+    "title": "API (disambiguation)",
+    "description": "An API, or application programming interface, is any defined inter-program interface. API or api may also refer to:..."
+  },
+  "Representational state transfer": {
+    "title": "Representational state transfer",
+    "description": "Representational state transfer (REST) is a de-facto standard for a software architecture for interactive applications."
+  }
+}
